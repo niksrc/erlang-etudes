@@ -6,5 +6,10 @@
 -module(geom).
 -export([area/2]).
 
+%% @doc calculate area of a rectangle with a given 
+%% length and breadth
+
+-spec(area(number(), number()) -> number()).
+
 area(Length, Breadth) -> Length * Breadth.
 
