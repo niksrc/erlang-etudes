@@ -4,12 +4,13 @@
 %% @version 0.1
 
 -module(geom).
--export([area/2]).
+-export([area/3]).
 
-%% @doc calculate area of a rectangle with a given 
-%% length and breadth
+%% @doc calculate area of a shape with a given 
+%% dimensions
 
--spec(area(number(), number()) -> number()).
+-spec(area(atom(), number(), number()) -> number()).
 
-area(Length, Breadth) -> Length * Breadth.
-
+area(rectangle, A, B) -> A * B;
+area(triangle, A, B) -> A * B / 2.0;
+area(ellipse, A, B) -> math:pi() * A * B.
