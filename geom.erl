@@ -11,6 +11,6 @@
 
 -spec(area(atom(), number(), number()) -> number()).
 
-area(rectangle, A, B) -> A * B;
-area(triangle, A, B) -> A * B / 2.0;
-area(ellipse, A, B) -> math:pi() * A * B.
+area(rectangle, A, B) when (A > 0) and (B > 0) -> A * B;
+area(triangle, A, B) when (A > 0) and (B > 0) -> A * B / 2.0;
+area(ellipse, A, B) when (A > 0) and (B > 0) -> math:pi() * A * B.
