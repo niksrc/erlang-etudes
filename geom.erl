@@ -4,14 +4,17 @@
 %% @version 0.1
 
 -module(geom).
--export([area/1]).
+-export([area/3]).
 
 %% @doc calculate area of a shape with a given 
 %% dimensions
 
--spec(area({atom(), number(), number() }) -> number()).
+-spec(area(atom(), number(), number()) -> number()).
 
-area({rectangle, A, B}) when (A > 0) and (B > 0) -> A * B;
-area({triangle, A, B}) when (A > 0) and (B > 0) -> A * B / 2.0;
-area({ellipse, A, B}) when (A > 0) and (B > 0) -> math:pi() * A * B;
-area({_, _, _}) -> 0.
+area(Shape, A, B) when A >=0, B >=0 ->
+	case Shape of
+		rectangle -> A * B;
+		triangle -> A * B / 2.0;
+		ellipse -> math:pi() * A * B
+	end.
+
